@@ -11,7 +11,7 @@ package javatest1;
  * @author louie
  */
 public class Image {
-    private int progress;
+    //private int progress;
     private String src;
     
     /**
@@ -20,7 +20,7 @@ public class Image {
      */
     public Image(String src) {
         this.src = src;
-        this.progress = 0;
+        //this.progress = 0;
     }
     
     public String getSrc() {
@@ -28,15 +28,7 @@ public class Image {
     
     }
     
-    public int getProgress() {
-        return progress;
-    }
-    
     public void setSrc(String src) {
         this.src = src;
-    }
-    
-    public void setProgress(int progress) {
-        this.progress = progress;
     }
 }
