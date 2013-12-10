@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +21,8 @@ import java.net.URLConnection;
  */
 public class Connection {
     URL resource;
-    BufferedReader in;
+    static BufferedReader in;
+    ArrayList<Image> images;
     
     /**
      * 
@@ -31,5 +35,19 @@ public class Connection {
         in = new BufferedReader(new InputStreamReader(spoof.getInputStream()));
     }
     
+    public ArrayList<Image> getImages() {
+        return this.images;
+    }
     
+    public static void main(String[] args) {
+        String line;
+        try {
+            new Connection(new URL("https://google.com"));
+            while((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
